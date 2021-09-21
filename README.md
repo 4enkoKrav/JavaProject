@@ -14,3 +14,4 @@ In this project u can store the information about employees(name,surname,phone n
 Also u can search for an employee, view detailed information about an employee.
 
 The system has an admin role for adding, updating and deleting the list of employees and their data.
+.

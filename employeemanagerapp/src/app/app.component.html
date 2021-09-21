@@ -6,7 +6,9 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
+         <button type="button" class="btn btn-primary">
            <a class="nav-link" (click)="onOpenModal(null, 'add')">Add Employee <span class="sr-only">(current)</span></a>
+         </button>
         </li>
      </ul>
      <form class="form-inline my-2 my-lg-0">
@@ -17,11 +19,11 @@
 </nav>
 <div class="container" id="main-container">
 <div class="row">
-  <div *ngFor="let employee of employees" class="col-md-6 col-xl-3">
+  <div *ngFor="let employee of employees" class="col-md-6 col-xl-4">
      <div class="card m-b-30">
         <div class="card-body row">
            <div class="col-6">
-              <a href=""><img src="{{employee?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+              <a href=""><img src="{{employee?.imageUrl}}" alt="" class="img-fluid rounded-circle w-100"></a>
            </div>
            <div class="col-6 card-title align-self-center mb-0">
               <h5>{{employee?.name}}</h5>
@@ -37,6 +39,9 @@
               <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
               <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
            </div>
+             <ul class="social-links list-inline mb-0">
+               <li class="list-inline-item"><a title="" data-placement="top"  class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+             </ul>
         </div>
      </div>
   </div>

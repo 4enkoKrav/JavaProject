@@ -57,3 +57,11 @@ color: white;
 a {
 color: white;
 }
+
+#filterByName{
+  margin-right: 5px;
+}
+
+#filterById{
+  margin-right: 5px;
+}

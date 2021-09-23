@@ -4,6 +4,8 @@ import { EmployeeService } from './employee.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,8 @@ export class AppComponent implements OnInit {
   public employees: Employee[];
   public editEmployee: Employee;
   public deleteEmployee: Employee;
+  filterText ='';
+
 
   constructor(private employeeService: EmployeeService){}
 
@@ -87,6 +91,17 @@ export class AppComponent implements OnInit {
       this.getEmployees();
     }
   }
+
+
+  public filterEmployeesByName(){
+    this.employees.sort((a,b) => a.name > b.name ? 1 : -1);  
+  }
+
+  public filterEmployeesById(){
+    this.employees.sort((a,b) => a.id > b.id ? 1 : -1);  
+  }
+
+  
 
   public onOpenModal(employee: Employee, mode: string): void {
     const container = document.getElementById('main-container');

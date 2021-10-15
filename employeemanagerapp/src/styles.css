@@ -9,9 +9,9 @@ a {
   cursor: pointer;
 }
 
-.navbar {
-  margin-bottom: 30px;
-}
+ .navbar {
+  margin-bottom: 0px;
+} 
 
 .card {
   border: none;
@@ -65,3 +65,9 @@ color: white;
 #filterById{
   margin-right: 5px;
 }
+
+/* 
+.container{
+  display: none;
+}
+ */

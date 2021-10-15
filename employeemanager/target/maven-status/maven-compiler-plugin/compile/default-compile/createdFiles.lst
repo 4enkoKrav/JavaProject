@@ -1,4 +1,2 @@
-tech\getarrays\employeemanager\service\EmployeeService.class
-tech\getarrays\employeemanager\EmployeeResource.class
-tech\getarrays\employeemanager\exception\UserNotFoundException.class
-tech\getarrays\employeemanager\repo\EmployeeRepo.class
+com\courseproj\employeemanager\EmployeemanagerApplication.class
+com\courseproj\employeemanager\model\Employee.class

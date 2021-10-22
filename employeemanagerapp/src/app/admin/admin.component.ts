@@ -77,6 +77,7 @@ export class AdminComponent implements OnInit {
       );
     }
   
+  
     public searchEmployees(key: string): void {
       console.log(key);
       const results: Employee[] = [];
@@ -96,7 +97,7 @@ export class AdminComponent implements OnInit {
   
   
     public filterEmployeesByName(){
-      this.employees.sort((a,b) => a.name > b.name ? 1 : -1);  
+      this.employees.sort((a,b) => a.name > b.name ? 1 : -1);
     }
   
     public filterEmployeesById(){
@@ -104,7 +105,6 @@ export class AdminComponent implements OnInit {
     }
   
     
-  
     public onOpenModal(employee: Employee, mode: string): void {
       const container = document.getElementById('main-container');
       const button = document.createElement('button');

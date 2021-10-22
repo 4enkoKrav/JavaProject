@@ -3,7 +3,12 @@
       <button id= "addButton" type="button" class="btn btn-primary">
          <a style="color:white;" class="nav-link" (click)="onOpenModal(null, 'add')">Add Employee <span class="sr-only">(current)</span></a>
       </button>
-      
+      <form class="form-inline my-2 my-lg-0">
+         <a id="filterById" (click)="filterEmployeesById()" class="btn btn-primary tooltips" data-placement="top" data-original-title=""> <i class="fa fa-filter" aria-hidden="true"> ID  </i></a>
+            <a id="filterByName" (click)="filterEmployeesByName()" class="btn btn-primary tooltips" data-placement="top" data-original-title=""> <i class="fa fa-filter" aria-hidden="true"> Name  </i></a>
+           <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
+            name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
+        </form>
 </nav>
 <br>
 

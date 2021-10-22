@@ -1,3 +1,6 @@
+#    http://localhost:8081/v3/api-docs/
+#    http://localhost:8081/v3/api-docs.yaml/
+#    http://localhost:8080/swagger-ui.html
 server:
     port: 8081
     error:

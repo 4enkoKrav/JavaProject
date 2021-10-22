@@ -12,11 +12,5 @@
            </button> -->
           </li>
        </ul>
-       <form class="form-inline my-2 my-lg-0">
-        <a id="filterById" (click)="filterEmployeesById()" class="btn btn-primary tooltips" data-placement="top" data-original-title=""> <i class="fa fa-filter" aria-hidden="true"> ID  </i></a>
-           <a id="filterByName" (click)="filterEmployeesByName()" class="btn btn-primary tooltips" data-placement="top" data-original-title=""> <i class="fa fa-filter" aria-hidden="true"> Name  </i></a>
-          <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
-           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
-       </form>
     </div>
   </nav>

@@ -1,6 +1,6 @@
 package com.courseproj.employeemanager.service;
 
-import com.courseproj.employeemanager.exception.UserNotFoundException;
+import com.courseproj.employeemanager.exception.EmployeeException;
 import com.courseproj.employeemanager.model.Employee;
 import com.courseproj.employeemanager.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class EmployeeService {
 
     public Employee findEmployeeById(Long id){
         return employeeRepo.findEmployeeById(id)
-                .orElseThrow(() -> new UserNotFoundException("User by id" + id + "was not found") );
+                .orElseThrow(() -> new EmployeeException("User by id " + id + " was not found") );
     }
 
     public List<Employee> findAllEmployees(){

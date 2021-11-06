@@ -1,5 +1,6 @@
-package com.courseproj.employeemanager.appuser;
+package com.courseproj.employeemanager.appuser.repo;
 
+import com.courseproj.employeemanager.appuser.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

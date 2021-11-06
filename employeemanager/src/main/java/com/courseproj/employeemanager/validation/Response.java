@@ -1,4 +1,4 @@
-package com.courseproj.employeemanager;
+package com.courseproj.employeemanager.validation;
 
 public class Response {
 

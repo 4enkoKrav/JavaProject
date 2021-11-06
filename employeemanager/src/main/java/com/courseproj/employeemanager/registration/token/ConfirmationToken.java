@@ -1,6 +1,6 @@
 package com.courseproj.employeemanager.registration.token;
 
-import com.courseproj.employeemanager.appuser.AppUser;
+import com.courseproj.employeemanager.appuser.model.AppUser;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

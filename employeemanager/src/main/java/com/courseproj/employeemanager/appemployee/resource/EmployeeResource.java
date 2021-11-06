@@ -1,16 +1,16 @@
-package com.courseproj.employeemanager;
+package com.courseproj.employeemanager.appemployee.resource;
 
 import com.courseproj.employeemanager.exception.EmployeeException;
-import com.courseproj.employeemanager.model.Employee;
-import com.courseproj.employeemanager.service.EmployeeService;
+import com.courseproj.employeemanager.appemployee.Employee;
+import com.courseproj.employeemanager.appemployee.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import lombok.extern.java.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Validated
+@Log
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200/admin")
 @RequestMapping("/employee")
@@ -35,6 +36,7 @@ public class EmployeeResource {
             throw new EmployeeException("EmployeeException in getAllEmployees Controller");
         }
         List<Employee> employees = employeeService.findAllEmployees();
+        log.info("Fetching all employees...");
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
@@ -54,6 +56,7 @@ public class EmployeeResource {
                 throw new EmployeeException("EmployeeException in getEmployeeById Controller");
             }
         Employee employee = employeeService.findEmployeeById(id);
+        log.info("Getting an employee by ID...");
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
@@ -68,6 +71,7 @@ public class EmployeeResource {
 //
 //        }
         Employee newEmployee = employeeService.addEmployee(employee);
+        log.info("Adding employee...");
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
 
@@ -78,6 +82,7 @@ public class EmployeeResource {
             throw new EmployeeException("EmployeeException in updateEmployee Controller");
         }
         Employee updateEmployee = employeeService.updateEmployee(employee);
+        log.info("Updating employee...");
         return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
     }
 
@@ -88,6 +93,7 @@ public class EmployeeResource {
             throw new EmployeeException("EmployeeException in deleteEmployee Controller");
         }
         employeeService.deleteEmployee(id);
+        log.info("Deleting employee...");
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

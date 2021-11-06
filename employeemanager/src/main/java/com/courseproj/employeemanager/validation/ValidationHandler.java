@@ -1,4 +1,4 @@
-package com.courseproj.employeemanager;
+package com.courseproj.employeemanager.validation;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

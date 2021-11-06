@@ -1,8 +1,11 @@
-package com.courseproj.employeemanager.appuser;
+package com.courseproj.employeemanager.appuser.service;
 
+import com.courseproj.employeemanager.appuser.model.AppUser;
+import com.courseproj.employeemanager.appuser.repo.AppUserRepository;
 import com.courseproj.employeemanager.registration.token.ConfirmationToken;
 import com.courseproj.employeemanager.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,6 +16,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
+@Log
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
 
@@ -41,7 +45,7 @@ public class AppUserService implements UserDetailsService {
         if (userExists){
 
             // TODO: if email not confirmed send confirmation email.
-
+            log.info("User with email " + appUser.getUsername() + " already taken");
             throw new IllegalStateException("email already taken");
         }
 

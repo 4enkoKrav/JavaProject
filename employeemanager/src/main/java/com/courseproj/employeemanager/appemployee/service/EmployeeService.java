@@ -1,8 +1,9 @@
-package com.courseproj.employeemanager.service;
+package com.courseproj.employeemanager.appemployee.service;
 
 import com.courseproj.employeemanager.exception.EmployeeException;
-import com.courseproj.employeemanager.model.Employee;
-import com.courseproj.employeemanager.repo.EmployeeRepo;
+import com.courseproj.employeemanager.appemployee.Employee;
+import com.courseproj.employeemanager.appemployee.repo.EmployeeRepo;
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Log
 @Transactional
 public class EmployeeService {
     private final EmployeeRepo employeeRepo;
@@ -35,7 +37,11 @@ public class EmployeeService {
 
     public Employee findEmployeeById(Long id){
         return employeeRepo.findEmployeeById(id)
-                .orElseThrow(() -> new EmployeeException("User by id " + id + " was not found") );
+                .orElseThrow(() -> {
+                    new EmployeeException("User by id " + id + " was not found");
+                    log.info("User by id" + id + "wasn't found");
+                    return null;
+                });
     }
 
     public List<Employee> findAllEmployees(){

@@ -1,7 +1,6 @@
-package com.courseproj.employeemanager;
+package com.courseproj.employeemanager.validation;
 
 import com.courseproj.employeemanager.exception.EmployeeException;
-import com.courseproj.employeemanager.model.Employee;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

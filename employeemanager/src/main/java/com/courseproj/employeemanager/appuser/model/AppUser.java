@@ -1,4 +1,4 @@
-package com.courseproj.employeemanager.appuser;
+package com.courseproj.employeemanager.appuser.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

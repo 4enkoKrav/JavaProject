@@ -10,6 +10,57 @@
          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
      </form>
 </nav>
+
+
+<!-- <div *ngIf="info.token; else loggedOut">
+   <h5 class="text-primary">Home Page</h5>
+   <p>
+     <strong>Email: </strong> {{info.email}} <br/>
+     <strong>Roles:</strong> {{info.roles}} <br/>
+     <strong>Token:</strong> {{info.token}} <br/>
+   </p>
+   <button class="btn btn-secondary" (click)="logout()">Logout</button>
+ </div>
+ 
+ <ng-template #loggedOut>
+   Please login.
+ </ng-template> -->
+
+<!-- 
+ component.ts
+
+
+import { Component, OnInit } from '@angular/core';
+
+import { TokenStorageService } from '../auth/token-storage.service';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent implements OnInit {
+
+  info: any;
+
+  constructor(private token: TokenStorageService) { }
+
+  ngOnInit(): void {
+    this.info = {
+      token: this.token.getToken(),
+      email: this.token.getEmail(),
+      authorities: this.token.getAuthorities()
+    };
+  }
+
+  logout() {
+    this.token.signOut();
+    window.location.reload();
+  }
+
+} -->
+
+
 <br>
 
 <div class="container" id="main-container">
@@ -53,7 +104,7 @@
            </button>
         </div>
         <div class="modal-body">
-           <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+           <form #addForm="ngForm" (ngSubmit)="onAddEmployee(addForm)">
            <div class="form-group">
               <label for="name">Name</label>
               <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required #name="ngModel"
@@ -67,8 +118,8 @@
               <small *ngIf="email.invalid && (email.touched || email.dirty)"  class="text-danger">Email is required and should be valid</small>
            </div>
            <div class="form-group">
-              <label for="phone">Job title</label>
-              <input type="text" ngModel name="jobtitle" class="form-control" id="jobTile" placeholder="Job title" required #jobtitle="ngModel"
+              <label for="jobtitle">Job title</label>
+              <input type="text" ngModel name="jobTitle" class="form-control" id="jobtitle" placeholder="Job title" required #jobtitle="ngModel"
                      min="1" max="30" minlength="1" maxlength="30" pattern="\D+">
               <small *ngIf="jobtitle.invalid && (jobtitle.touched || jobtitle.dirty )" class="text-danger">Job title is required and must contain only letters (from 1 to 30 characters)</small>
            </div>
@@ -79,9 +130,8 @@
               <small *ngIf="phone.invalid && (phone.touched || phone.dirty)" class="text-danger">Phone is required and must contain only digits</small>
            </div>
            <div class="form-group">
-              <label for="phone">Image URL</label>
-              <input type="text" ngModel name="imageurl" class="form-control" id="imageUrl" placeholder="Image URL" required #imageurl="ngModel"
-                     pattern="">
+              <label for="imageurl">Image URL</label>
+              <input type="text" ngModel name="imagerl" class="form-control" id="imageurl" placeholder="Image URL" required #imageurl="ngModel">
               <small *ngIf="imageurl.invalid && (imageurl.touched || imageurl.dirty)" class="text-danger">Image URL is required</small>
            </div>
            <div class="modal-footer">
@@ -95,7 +145,8 @@
    </div>
  <!-- 
   Edit Modal  -->
- <div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+
+  <div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header">
@@ -108,45 +159,41 @@
             <form #editForm="ngForm">
                <div class="form-group">
                   <label for="name">Name</label>
-                  <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" required #name="ngModel" 
-                         minlength="1" maxlength="30" min="1" max="30" pattern="\D+">
+                  <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name" required #name="ngModel" minlength="1" maxlength="30" min="1" max="30" pattern="\D+">
                   <small  class="text-info">Name is required and must contain only letters (from 1 to 30 characters)</small>
                </div>
-               <input type="hidden" ngModel ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+               <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
                <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
                <div class="form-group">
                   <label for="email">Email Address</label>
-                  <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email" placeholder="Email" required #email="ngModel"
-                         email>
+                  <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email" placeholder="Email" required #email="ngModel" email>
                   <small class="text-info">Email is required and should be valid</small>
                </div>
                <div class="form-group">
                   <label for="phone">Job title</label>
-                  <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobtitle" class="form-control" id="jobTitle" placeholder="Job title" required #jobtitle="ngModel" 
-                         min="1" max="30" minlength="1" maxlength="30" pattern="\D+">
+                  <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title" required #jobTitle="ngModel" min="1" max="30" minlength="1" maxlength="30" pattern="\D+">
                   <small class="text-info">Job title is required and must contain only letters (from 1 to 30 characters)</small>
                </div>
                <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone" required #phone="ngModel" 
-                         min="12" max="13" minlength="12" maxlength="13" pattern="\d+">
+                  <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone" required #phone="ngModel" min="12" max="13" minlength="12" maxlength="13" pattern="\d+">
                   <small class="text-info">Phone is required and must contain only digits</small>
                </div>
                <div class="form-group">
                   <label for="phone">Image URL</label>
-                  <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageurl" class="form-control" id="imageUrl" placeholder="Image URL" required #imageurl="ngModel" 
-                         pattern="">
+                  <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required #imageUrl="ngModel">
                   <small class="text-info">Image URL is required</small>
                </div>
                <div class="modal-footer">
                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                  <button (click)="onUpdateEmloyee(editForm.value)" [disabled]="editForm.invalid" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                  <button [disabled]="editForm.invalid" (click)="onUpdateEmployee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
                </div>
             </form>
          </div>
       </div>
    </div>
  </div>
+
  <!-- 
   Delete Modal  -->
  <div class="modal fade" id="deleteEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
@@ -162,7 +209,7 @@
             <p>Are you sure you want to delete employee {{deleteEmployee?.name}}?</p>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-               <button (click)="onDeleteEmloyee(deleteEmployee?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+               <button (click)="onDeleteEmployee(deleteEmployee?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
             </div>
          </div>
       </div>

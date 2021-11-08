@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Pipe } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 
 import { EmployeeService } from './employee.service';
@@ -15,6 +15,8 @@ import { FooterComponent } from 'src/footer/footer.component';
 
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -24,7 +26,9 @@ import { appRoutes } from './routes';
     NavComponent,
     FooterComponent,
     AdminComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

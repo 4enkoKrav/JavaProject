@@ -38,7 +38,7 @@ export class AdminComponent implements OnInit {
       );
     }
   
-    public onAddEmloyee(addForm: NgForm): void {
+    public onAddEmployee(addForm: NgForm): void {
       document.getElementById('add-employee-form').click();
       this.employeeService.addEmployee(addForm.value).subscribe(
         (response: Employee) => {
@@ -53,7 +53,7 @@ export class AdminComponent implements OnInit {
       );
     }
   
-    public onUpdateEmloyee(employee: Employee): void {
+    public onUpdateEmployee(employee: Employee): void {
       this.employeeService.updateEmployee(employee).subscribe(
         (response: Employee) => {
           console.log(response);
@@ -65,7 +65,7 @@ export class AdminComponent implements OnInit {
       );
     }
   
-    public onDeleteEmloyee(employeeId: number): void {
+    public onDeleteEmployee(employeeId: number): void {
       this.employeeService.deleteEmployee(employeeId).subscribe(
         (response: void) => {
           console.log(response);

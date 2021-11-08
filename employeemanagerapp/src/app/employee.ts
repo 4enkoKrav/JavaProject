@@ -1,5 +1,4 @@
 export interface Employee {
-  sort: any;
   id: number;
   name: string;
   email: string;

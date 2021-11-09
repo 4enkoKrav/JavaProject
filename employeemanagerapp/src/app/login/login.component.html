@@ -1,6 +1,14 @@
 <div *ngIf="isLoggedIn; else loggedOut" id="LoggedInAssDiv">
     Logged in as {{roles}}.
-    <button class="btn btn-primary">Go to page</button> <!-- (click)="functionRedirectAdmin()" -->
+      <div *ngIf="roleAdmin">
+        <button (click)="functionRedirectAdmin()" class="btn btn-primary">Go to page Admin</button> 
+      </div>
+      <div *ngIf="roleUser">
+        <button (click)="functionRedirectUser()" class="btn btn-primary">Go to page User</button>  
+      </div>
+          <div id="DivLogout">
+          <button class="btn btn-danger" (click)="logout()">Logout</button>
+          </div>
   </div>
    
   <ng-template #loggedOut>

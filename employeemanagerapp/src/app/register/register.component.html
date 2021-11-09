@@ -1,5 +1,6 @@
-<div *ngIf="isSignedUp; else signupForm">
+<div *ngIf="isSignedUp; else signupForm" id="RegisteredInAssDiv">
     Your registration is successful. Please login!
+     <button (click)="functionRedirectSignIn()" class="btn btn-primary">Go to Login page</button>  
   </div>
   
   <ng-template #signupForm>
@@ -31,10 +32,10 @@
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
-            required minlength="6" />
+            required minlength="1" />
           <div *ngIf="f.submitted && password.invalid">
             <div *ngIf="password.errors.required">Password is required</div>
-            <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+            <div *ngIf="password.errors.minlength">Password must be at least 1 characters</div>
           </div>
         </div>
         <div class="form-group">

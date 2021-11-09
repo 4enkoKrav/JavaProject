@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth/auth.service';
 import { SignUpInfo } from '../auth/signup-info';
@@ -15,16 +16,24 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() { }
+
+  functionRedirectSignUp(){
+    this.router.navigate(['/signup']);
+  }
+  functionRedirectSignIn(){
+    this.router.navigate(['/signin']);
+  }
+
 
   onSubmit() {
     console.log(this.form);
 
     this.signupInfo = new SignUpInfo(
-      this.form.name,
-      this.form.username,
+      this.form.firstname,
+      this.form.lastname,
       this.form.email,
       this.form.password);
 

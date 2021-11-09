@@ -5,6 +5,7 @@
         <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search employees..." required>
      </form>
+     <button (click)="functionRedirectSignIn()" class="btn btn-danger">Back to Role Info Page</button> 
 </nav>
 <br>
 
@@ -18,7 +19,7 @@
              </div>
              <div class="col-5 card-title align-self-center mb-0">
                 <h5>{{employee?.name}}</h5>
-                <p class="m-0">{{employee?.jobTitle}}</p>
+                <p style="color:rgb(23, 23, 209)" class="m-0">{{employee?.jobTitle}}</p>
              </div>
           </div>
           <ul class="list-group list-group-flush">
@@ -27,7 +28,7 @@
           </ul>
           <div class="card-body">
                <ul class="social-links list-inline mb-0">
-                 <li class="list-inline-item"><a title="" data-placement="top"  class="tooltips" href="" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
+                 <li class="list-inline-item"><a title="" data-placement="top"  class="tooltips" data-original-title="Skype"><i class="fa fa-skype"></i></a></li>
                </ul>
           </div>
        </div>

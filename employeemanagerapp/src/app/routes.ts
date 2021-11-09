@@ -1,10 +1,11 @@
-import { Routes } from "@angular/router";
+import { Router, RouterModule, Routes } from "@angular/router";
 import { UserComponent } from "./user/user.component";
 import { NavComponent } from "src/nav/navbar.component";
 import { AppComponent } from "./app.component";
 import { AdminComponent } from "./admin/admin.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { NgModule } from "@angular/core";
 
 export const appRoutes: Routes = [
     { 
@@ -29,3 +30,4 @@ export const appRoutes: Routes = [
         pathMatch: 'full'
     }
 ];
+

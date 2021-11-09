@@ -5,12 +5,13 @@ import java.util.List;
 
 public class JwtResponse {
 
+    private Long id;
     private String token;
     private String type = "Bearer";
-    private Long id;
-    private String email;
+
     private String firstname;
     private String lastname;
+    private String email;
     private List<String> roles;
 
     public JwtResponse(String token, Long id, String firstname, String lastname, String email, List<String> roles) {

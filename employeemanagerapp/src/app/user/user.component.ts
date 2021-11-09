@@ -5,6 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NONE_TYPE } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -23,7 +24,11 @@ export class UserComponent implements OnInit {
   filterText ='';
 
 
-  constructor(private employeeService: EmployeeService){}
+  constructor(private employeeService: EmployeeService, private router: Router){}
+
+  functionRedirectSignIn(){
+    this.router.navigate(['/signin']);
+  }
 
   ngOnInit() {
     this.getEmployees();

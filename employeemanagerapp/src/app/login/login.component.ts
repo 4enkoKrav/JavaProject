@@ -24,7 +24,15 @@ export class LoginComponent implements OnInit {
  
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
  
+  info: any;
+
   ngOnInit() {
+
+   this.info = {
+      token: this.tokenStorage.getToken(),
+      emaill: this.tokenStorage.getEmail(),
+      authorities: this.tokenStorage.getAuthorities()
+    };
 
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
@@ -47,10 +55,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['user']);
   }
 
-  // functionRedirectSignIn(){
-  //   this.router.navigate(['signin']);
-    
-  // }
+
   
   logout() {
     this.tokenStorage.signOut();

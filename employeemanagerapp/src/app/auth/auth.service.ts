@@ -18,6 +18,7 @@ export class AuthService {
   private loginUrl = 'http://localhost:8081/api/auth/signin';
   private signupUrl = 'http://localhost:8081/api/auth/signup';
 
+
   attemptAuth(credentials: AuthLoginInfo): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
   }
@@ -25,6 +26,7 @@ export class AuthService {
   signUp(info: SignUpInfo): Observable<string> {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
   }
+
 
   constructor(private http: HttpClient) { }
 }

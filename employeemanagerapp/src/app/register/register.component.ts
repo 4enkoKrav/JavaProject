@@ -16,6 +16,9 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
+  isEnabled = true;
+  isntEnabled = false;
+
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() { }
@@ -32,10 +35,9 @@ export class RegisterComponent implements OnInit {
     console.log(this.form);
 
     this.signupInfo = new SignUpInfo(
-      this.form.firstname,
-      this.form.lastname,
       this.form.email,
-      this.form.password);
+      this.form.password
+      );
 
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
@@ -49,5 +51,6 @@ export class RegisterComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     );
+
   }
 }

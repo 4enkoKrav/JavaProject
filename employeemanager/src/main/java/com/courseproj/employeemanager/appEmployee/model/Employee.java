@@ -1,9 +1,8 @@
-package com.courseproj.employeemanager.appemployee;
-
-import org.springframework.beans.factory.annotation.Autowired;
+package com.courseproj.employeemanager.appEmployee.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -12,11 +11,10 @@ import java.util.*;
 @Entity
 public class Employee implements Serializable {
 
+    //@Size(min = 0, max = 100)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
-    //@NotBlank
-    //@Size(min = 0, max = 100)
+    @Column(nullable = false, updatable = false, unique = true)
     private Long id;
 
     @Size(min = 1, max = 30)

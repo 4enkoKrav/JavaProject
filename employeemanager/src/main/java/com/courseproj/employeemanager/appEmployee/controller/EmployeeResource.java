@@ -1,8 +1,8 @@
-package com.courseproj.employeemanager.appemployee.resource;
+package com.courseproj.employeemanager.appEmployee.controller;
 
 import com.courseproj.employeemanager.exception.EmployeeException;
-import com.courseproj.employeemanager.appemployee.Employee;
-import com.courseproj.employeemanager.appemployee.service.EmployeeService;
+import com.courseproj.employeemanager.appEmployee.model.Employee;
+import com.courseproj.employeemanager.appEmployee.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -66,10 +66,7 @@ public class EmployeeResource {
         if (exception) {
             throw new EmployeeException("EmployeeException in addEmployee Controller");
         }
-//        if(bindingResult.hasErrors())
-//        {
-//
-//        }
+
         Employee newEmployee = employeeService.addEmployee(employee);
         log.info("Adding employee...");
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);

@@ -1,6 +1,6 @@
 package com.courseproj.employeemanager.jwt;
 
-import com.courseproj.employeemanager.service.UserDetailsImpl;
+import com.courseproj.employeemanager.appUser.service.UserDetailsImpl;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;

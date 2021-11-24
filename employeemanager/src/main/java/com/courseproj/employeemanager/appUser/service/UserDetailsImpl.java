@@ -1,11 +1,11 @@
-package com.courseproj.employeemanager.service;
+package com.courseproj.employeemanager.appUser.service;
 
 
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.courseproj.employeemanager.appuser.AppUser;
+import com.courseproj.employeemanager.appUser.model.user.AppUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,18 +17,19 @@ public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    private String firstname;
-    private String lastname;
+//    private String firstname;
+//    private String lastname;
     private String email;
     @JsonIgnore
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String firstname, String lastname, String email, String password,
+    // String firstname, String lastname,
+    public UserDetailsImpl(Long id, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+//        this.firstname = firstname;
+//        this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -39,10 +40,10 @@ public class UserDetailsImpl implements UserDetails {
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
 
+        //user.getFirstName(),
+        //user.getLastName(),
         return new UserDetailsImpl(
                 user.getId(),
-                user.getFirstName(),
-                user.getLastName(),
                 user.getEmail(),
                 user.getPassword(),
                 authorities);
@@ -57,13 +58,13 @@ public class UserDetailsImpl implements UserDetails {
         return id;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
+//    public String getFirstname() {
+//        return firstname;
+//    }
+//
+//    public String getLastname() {
+//        return lastname;
+//    }
 
     @Override
     public String getUsername() {

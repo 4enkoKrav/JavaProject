@@ -1,5 +1,8 @@
 <div *ngIf="isLoggedIn; else loggedOut" id="LoggedInAssDiv">
-    Logged in as {{roles}}.
+    Role:   {{roles}}
+    <br>
+    Token:  {{info.token}}
+    <br>
       <div *ngIf="roleAdmin">
         <button (click)="functionRedirectAdmin()" class="btn btn-primary">Go to page Admin</button> 
       </div>

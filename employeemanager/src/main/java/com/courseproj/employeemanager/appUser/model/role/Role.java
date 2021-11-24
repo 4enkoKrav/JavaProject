@@ -1,4 +1,4 @@
-package com.courseproj.employeemanager.appuser;
+package com.courseproj.employeemanager.appUser.model.role;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

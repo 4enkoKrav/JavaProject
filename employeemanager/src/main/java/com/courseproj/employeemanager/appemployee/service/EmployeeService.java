@@ -1,8 +1,8 @@
-package com.courseproj.employeemanager.appemployee.service;
+package com.courseproj.employeemanager.appEmployee.service;
 
 import com.courseproj.employeemanager.exception.EmployeeException;
-import com.courseproj.employeemanager.appemployee.Employee;
-import com.courseproj.employeemanager.appemployee.repo.EmployeeRepo;
+import com.courseproj.employeemanager.appEmployee.model.Employee;
+import com.courseproj.employeemanager.appEmployee.repository.EmployeeRepo;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

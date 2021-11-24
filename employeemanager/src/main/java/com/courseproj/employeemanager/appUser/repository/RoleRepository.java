@@ -1,9 +1,9 @@
-package com.courseproj.employeemanager.repository;
+package com.courseproj.employeemanager.appUser.repository;
 
 import java.util.Optional;
 
-import com.courseproj.employeemanager.appuser.ERole;
-import com.courseproj.employeemanager.appuser.Role;
+import com.courseproj.employeemanager.appUser.model.role.ERole;
+import com.courseproj.employeemanager.appUser.model.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

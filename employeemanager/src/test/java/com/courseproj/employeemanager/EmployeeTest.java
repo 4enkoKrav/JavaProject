@@ -1,6 +1,6 @@
 package com.courseproj.employeemanager;
 
-import com.courseproj.employeemanager.appemployee.Employee;
+import com.courseproj.employeemanager.appEmployee.model.Employee;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,7 +1,8 @@
-package com.courseproj.employeemanager.appemployee.repo;
+package com.courseproj.employeemanager.appEmployee.repository;
 
-import com.courseproj.employeemanager.appemployee.Employee;
+import com.courseproj.employeemanager.appEmployee.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
